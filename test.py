@@ -6,10 +6,7 @@ def api_call(endpoint, data=None):
     headers = {"origin": "https://test.trezor.io"}
 
     r = requests.post(API + endpoint, headers=headers, data=data)
-    if data:
-        return r.text
-    else:
-        return r.json()
+    return r.text if data else r.json()
 
 
 j = api_call("/")
